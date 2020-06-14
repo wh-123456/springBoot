@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"  
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"  
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">  
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<TITLE>Springb</TITLE>
+		<META name="description" content="THORNBIRD.COM"/>
+		
+		<!-- 引入外部js或css ps:从static目录下开始写,这里引入了sbDemo -->
+	    <script th:src="@{http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js}"></script>  
+	    <script th:src="@{http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js}"></script>
+	    <script th:src="${'/js/sbDemo.js'}" type="text/javascript"></script>
+		<link th:href="@{http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css}" rel="stylesheet" >
+		<link th:href="${'/css/sbDemo.css'}" rel="stylesheet" />
+	</head>
+	
+	<body>
+		<div id="wrapper">
+			<!--header :指向header.html里的id-->
+			<div th:replace="fragments/header :: header"></div><!-- 拼接fragments/header.html -->
+			
+			<!-- body -->
+			<div class='mainBody' style="margin-top: 20px;">
+				<div th:if="${template}"><!-- 判断存在该model，就获取 -->
+					<div th:replace="${template}"></div><!-- 这里将template的路径里的页面拼接过来 -->
+			    </div>
+			</div>
+			
+			<!--footer-->
+			<div th:replace="fragments/footer :: footer"></div><!-- 拼接fragments/footer.html -->
+		</div>
+	</body>
+</html>
